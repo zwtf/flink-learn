@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>pom</packaging>
+    <modules>
+        <module>wordcount</module>
+        <module>sinktools</module>
+        <module>UserBehaviorAnalysis</module>
+        <module>NetworkTrafficAnalysis</module>
+        <module>LoginFailDetect</module>
+        <module>OrderTimeout</module>
+    </modules>
+
+    <groupId>org.example</groupId>
+    <artifactId>flink-learn</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <flink.version>1.7.0</flink.version>
+        <scala.version>2.11</scala.version>
+        <kafka.version>2.2.0</kafka.version>
+        <scala.binary.version>2.11</scala.binary.version>
+    </properties>
+
+
+
+    <dependencyManagement>
+        <dependencies>
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-scala_${scala.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-scala -->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-streaming-scala_${scala.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_${scala.binary.version}</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+
+            <!--Kafka Sink-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka-0.11_${scala.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--Redis Sink-->
+            <dependency>
+                <groupId>org.apache.bahir</groupId>
+                <artifactId>flink-connector-redis_${scala.version}</artifactId>
+                <version>1.0</version>
+            </dependency>
+
+            <!--Flink Table API-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table_${scala.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--CEP(Complex Event Processing) Module-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-cep_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-cep-scala_${scala.binary.version}</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
