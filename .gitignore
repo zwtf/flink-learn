@@ -1,0 +1,8 @@
+/LoginFailDetect/target/
+/NetworkTrafficAnalysis/target/
+/OrderTimeout/target/
+/sinktools/target/
+/UserBehaviorAnalysis/target/
+/wordcount/target/
+/.idea/
+/flink-learn/
