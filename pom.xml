@@ -12,6 +12,7 @@
         <module>NetworkTrafficAnalysis</module>
         <module>LoginFailDetect</module>
         <module>OrderTimeout</module>
+        <module>advance-training</module>
     </modules>
 
     <groupId>org.example</groupId>

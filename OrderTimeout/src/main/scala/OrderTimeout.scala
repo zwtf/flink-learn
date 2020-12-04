@@ -47,9 +47,10 @@ object OrderTimeout {
 
     /**
      * patternTimeoutFunction 对不满足Pattern(超时)的数据执行这个流,该流返回类型受定义的OutPutTag控制
-     * patternSelectFunction  满足
+     * patternSelectFunction  对满足Pattern的数据执行该操作
+     * 对
      */
-    //混合流,包含符合条件的结果和侧输出结果的流,但是直接print 只会输出
+    //混合流,包含符合条件的结果和侧输出结果的流,但是直接print 只会输出PatternSelectFunction处理的数据
     val mixtureStream = patternStream.select(orderTimeoutOutput) {
       // 对于已超时的部分模式匹配的事件序列，会调用这个函数
       (pattern: collection.Map[String, Iterable[OrderEvent]], timestamp: Long) => {
@@ -70,8 +71,6 @@ object OrderTimeout {
     timeoutResult.print()
 
     env.execute("Order Timeout Detect Job")
-
-
 
   }
 
